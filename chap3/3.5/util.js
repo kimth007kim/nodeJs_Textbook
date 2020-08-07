@@ -6,7 +6,7 @@ const dontUseMe = util.deprecate((x, y) => {
 }, "dontUseMe 함수는 deprecated 되었으니 더 이상 사용하지 마세요!");
 dontUseMe(1, 2);
 
-const randomBytePromise = util.promisify(crypto.randomBytes);
+const randomBytesPromise = util.promisify(crypto.randomBytes);
 randomBytesPromise(64)
   .then((buf) => {
     console.log(buf.toString("base64"));
