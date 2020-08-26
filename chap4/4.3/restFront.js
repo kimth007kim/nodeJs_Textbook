@@ -10,7 +10,8 @@ function getUser() {
         var span = document.createElement("span");
         span.textContent = users[key];
         var edit = document.createElement("button");
-        edit.textContent("click", function () {
+        edit.textContent = "수정";
+        edit.addEventListener("click", function () {
           var name = prompt("바꿀 이름을 입력하세요");
           if (!name) {
             return alert("이름을 반드시 입력하셔야합니다.");
