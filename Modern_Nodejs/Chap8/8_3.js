@@ -1,6 +1,9 @@
+// socket.io 모듈과 같은 다른 모듈과 사용될때는 이런방식으로 사용된다.
+
 // 모듈을 추출합니다.
 var http = require("http");
 var express = require("express");
+const { Socket } = require("dgram");
 
 // 서버를 생성합니다.
 var app = express();
