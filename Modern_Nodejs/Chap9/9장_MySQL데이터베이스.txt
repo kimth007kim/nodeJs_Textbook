@@ -8,4 +8,12 @@ root 비밀번호는 1234
 새로운 커넥션 이름: nodejs_local
 
 9.3 mysql 모듈
+$ npm install mysql
+
+createConnection(options)	// 데이터베이스에 접속한다.
+
+CRUD 구현
+npm install express@4
+npm install ejs
 npm install mysql
+npm install body-parser
