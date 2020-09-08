@@ -1,0 +1,11 @@
+데이터베이스는 데이터를 반영구적으로 보관할 수 있는 공간으로 웹의 가장 핵심기술중 하나이다.
+MySQL은 대표적 관계형 데이터베이스
+
+http://dev.mysql.com/downloads/installer/
+
+root 비밀번호는 1234
+
+새로운 커넥션 이름: nodejs_local
+
+9.3 mysql 모듈
+npm install mysql
