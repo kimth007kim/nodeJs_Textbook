@@ -58,10 +58,10 @@ if (app.get("env") === "development") {
 // production 환경에서의 오류를 처리합니다.
 app.use(function (err, req, res, next) {
   res.status(err.status || 500);
-  res.render('error,' {
+  res.render("error", {
     message: err.message,
-    error:{}
-  })
+    error: {},
+  });
 });
 
 module.exports = app;
