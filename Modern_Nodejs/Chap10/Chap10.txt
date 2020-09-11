@@ -1,0 +1,45 @@
+10장
+
+express 프레임워크
+
+express 모듈은 프로젝트를 쉽게 만드릭 위해 expreess-generator 라는 전역 모듈을 제공한다.
+express-generator 모듈과 express 모듈을 합쳐서 express 프레임 워크라고 부른다. 
+
+express 프레임워크는 express 모듈로 만든 프레임 워크이다.  프로젝트를 손쉽게 만들어주며 기본 뷰 지원등을 해준다.
+
+설치방법 
+$npm install -g express-generator@4
+
+설치가 완료되면 "express 프로젝트이름" 형태로 프로젝트를 생성
+$ express HelloExpress 			//HelloExpress 프로젝트를 생성한다.
+
+생성후에 관련모듈 설치
+$cd HelloExpress && npm install
+
+생성한 프로젝트 실행하는 방법
+$SET DEBUG=helloExpress:* & npm start
+
+생성된 폴더와 파일의 주요역할
+
+bin(폴더): 프로그램의 실행과 관련된 파일이 들어있는 폴더, 이 폴더 내부에 있는 www파일을 실행해서 프레임워크를 실행
+public(폴더): express 모듈의 static 미들웨어를 사용해 웹서버에 올라가는 폴더. 이폴더는 js파일,css파일,그림파일등 리소스 파일 생성
+routes(폴더): 페이지 라우트 관련된 모듈 routes 폴더에는 index.js 파일과 routes 파일이있다.
+views(폴더): ejs파일 또는 jade 파일과 같은 템플릿 파일을 저장하는 공간
+app.js: 프로젝트 중심이되는 파일
+pakage.json: 현재 프로젝트와 관련된 정보와 모듈을 설치하는데 필요한 내용을 담고있다.
+
+jade 모듈 레이아웃
+$ express jadeLayout
+$ cd jadeLayout
+$ npm install
+
+extends layout을 통해서 layout폴더에있는것이랑 합쳐지는것
+
+ejs 모듈 레이아웃
+
+// -e 옵션 또는 --ejs 
+//ejs 템플릿 엔진을 사용한다.
+
+$express -e ejsLayout
+$cd ejsLayout
+$npm install

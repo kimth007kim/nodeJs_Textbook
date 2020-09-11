@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var obj = {
+        name: "park",
+        sayName: function () {
+          var that = this;
+
+          function inMethod() {
+            console.log("inMethod this:", that);
+            console.log("inMethod this.value:", that.name);
+          }
+          inMethod();
+        },
+      };
+      obj.sayName();
+    </script>
+  </body>
+</html>
