@@ -12,10 +12,10 @@ server.listen(52273, function () {
 
 // 웹 서버 이벤트를 연결합니다.
 server.on("request", function (request, response) {
-  // HTMLPage1.html 파일을 읽습니다.
   fs.readFile("HTMLPage1.html", function (error, data) {
     response.writeHead(200, { "Content-Type": "text/html" });
-    response.end(data);
+    response.write(data);
+    response.end();
   });
 });
 

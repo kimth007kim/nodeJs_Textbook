@@ -1,0 +1,55 @@
+변수 seats: 배열형식이면서 공연장 좌석 정보를 저장합니다.
+0: 빈공간 1: 예약 가능한공간 2: 예약이 완료된 좌석
+
+
+웹서버는  HTMLPage.html 파일을 제공한다. 
+클라이언트 페이지에서는 Ajax를 이용해서 seats를 JSON형태로 제공합니다.
+
+app.get("/", function (request, response, next) {
+  fs.readFile("HTMLPage.html", function (error, data) {
+    response.send(data.toString());
+  });
+});
+
+
+소켓서버는 reserve이벤트를 받으면 변수 seats를 변경한다. 이전에 예약한 상태를 숫자 2로 표시하기로 했으므로
+seats[data.x][data.y] 값으로  2를 입력한것이다.
+
+var io = socketio.listen(server);
+io.sockets.on("connection", function (socket) {
+  socket.on("reserve", function (data) {
+    seats[data.y][data.x] = 2;
+    io.sockets.emit("reserve", data);
+  });
+});
+
+HTMLPage.html
+
+socket 객체를 생성하고 reserve 이벤트를 연결하는것이다.
+  <script>
+      // 소켓 이벤트를 수행합니다.
+      var socket = io.connect();
+
+      // 이벤트를 연결합니다.
+      socket.on("reserve", function (data) {
+      });
+    </script>
+
+
+좌석을 생성할때는 http://127.0.0.1:52273/seats 에 위치하는 변수 seats의 JSON 파일을 가져와 구성한다. 
+
+ <!-- 초기 좌석 생성 -->
+    <script>
+      $(document).ready(function () {
+        //   변수를 선언합니다.
+        var onClickSeat = function () { };
+
+        // Ajax를 수행합니다.
+        $.getJSON("/seats", {
+            dummy: new Date().getTime(),
+          }, function (data) {
+            
+          });
+      });
+    </script>
+ 
