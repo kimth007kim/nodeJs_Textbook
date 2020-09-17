@@ -37,6 +37,8 @@ socket 객체를 생성하고 reserve 이벤트를 연결하는것이다.
 
 
 좌석을 생성할때는 http://127.0.0.1:52273/seats 에 위치하는 변수 seats의 JSON 파일을 가져와 구성한다. 
+dummy 객체를 서버에 전달한 이유는 인터넷 익스플로러 때문이다. 인터넷 익스플로러는 같은 URL 에 연속적으로 요청이 발생하면
+이전에 불러온 데이터를 제공한다. 따라서 현재 시간을 기반으로 URL을 매번 다른 형태로 전달하는것이다.
 
  <!-- 초기 좌석 생성 -->
     <script>
@@ -52,4 +54,19 @@ socket 객체를 생성하고 reserve 이벤트를 연결하는것이다.
           });
       });
     </script>
- 
+
+
+
+
+이렇게 가져온 변수 seats는 2차원 배열이므로 반복문을 2번 사용하면 X위치와 Y위치에 해당하는 요소를 선택할 수있습니다.
+반복문을 두번사용해주세요
+       // Ajax를 수행합니다.
+        $.getJSON("/seats", {
+            dummy: new Date().getTime(),
+          }, function (data) {
+            // 좌석을 생성합니다.
+            $.each(data, function (indexY, line) {
+              $.each(line, function (indexX, seat) {
+		)};
+	)};
+)};
